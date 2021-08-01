@@ -29,7 +29,7 @@ userRouter.get("/:id", (ctx, next) => {
 app
   .use(router.routes())
   .use(userRouter.routes())
-  .use(userRouter.allowedMethods())
-  .use(router.allowedMethods());
+  .use(userRouter.allowedMethods()) // 响应options方法；自动相应返回405,501状态码
+  .use(router.allowedMethods()); // 响应options方法；自动相应返回405,501状态码
 app.listen(3000);
 console.log('app listen on 3000');
